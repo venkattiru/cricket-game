@@ -1,0 +1,87 @@
+
+import { addScore, addWickets } from './redux/features/scoreSlice';
+import { useState } from 'react';
+import Image from './Image';
+import { cricObj } from './utils/common';
+import { styled } from 'styled-components';
+import {  useDispatch } from 'react-redux';
+import TotalScore from './TotalScore';
+import CricModal from './CricModal';
+import { useSelector } from 'react-redux';
+
+const Cricket = () => {
+    const [num, setNum] = useState(0);
+  const [desc, setDesc] = useState('');
+  const wickets = useSelector((state) => state.score.totalWickets);
+
+  const dispatch = useDispatch();
+
+ 
+  const StyledDesc = styled.p`
+    font-size: 20px;
+    color: ${props => props.ctype === 'W' ? "red" : "#487648"};
+    font-weight: 700;
+    flex-grow: 1;
+    flex-basis: 32rem;
+    margin-right: 18px;
+  `;
+  const StyledDiv = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+  `;
+
+  const StyledBtn = styled.button`
+    all: unset;
+    padding: 10px;
+    font-weight: 700;
+    background-color: #3a76c4;
+    width: 60px;
+    color: white;
+    text-align: center;
+  `;
+
+  const StyledHeader = styled.h2`
+  background:#24247c;
+  text-align: center;
+    color: coral;
+    margin: 0;
+    padding: 10px;
+  `;
+
+  const StyledCricImg = styled.img`
+    top: 8px;
+    position: absolute;
+    left: 10px;
+  `;
+
+    const handlebtn = () => {
+        setNum(Math.floor(Math.random()*14));
+        const value = Math.floor(Math.random() * 62);
+        setDesc(cricObj[value]);
+        if(cricObj[value].name === 'runs') {
+          dispatch(addScore(cricObj[value]?.value));
+        } else if(cricObj[value].name === 'out') {
+          dispatch(addWickets(1));
+        } 
+      }
+    return(
+        <div className="App">
+      <header>
+        <StyledCricImg src='../cricket-white32.png'/>
+        <StyledHeader>Cricket</StyledHeader>
+        </header>
+     <StyledDiv>
+     <Image num={num}/>
+       <StyledDesc ctype={desc.sign}>{desc?.desc}</StyledDesc>
+        <TotalScore/>
+     </StyledDiv>
+     <div style={{textAlign:'center'}}>
+     <StyledBtn onClick={handlebtn}>Play</StyledBtn>
+     </div>
+     {wickets === 10 && <CricModal open={true} />}
+    </div>
+    )
+}
+
+export default Cricket;
