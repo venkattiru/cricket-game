@@ -28,6 +28,13 @@
 .App-link {
   color: #61dafb;
 }
+.circle {
+    border: 1px solid;
+    border-radius: 50%;
+    text-align: center;
+    width: 45px;
+    font-size: 24px;
+}
 
 @keyframes App-logo-spin {
   from {
@@ -36,4 +43,20 @@
   to {
     transform: rotate(360deg);
   }
+}
+.score-display {
+  display: flex;
+}
+.score-display p {
+  margin: 10px 0;
+  display: flex;
+  height: 40px;
+}
+
+.MuiPopover-paper {
+  top:45px !important;
+  left: auto !important;
+  right: 10px !important;
+
+  
 }

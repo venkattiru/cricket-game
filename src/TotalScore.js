@@ -1,7 +1,7 @@
 
 import { useSelector } from "react-redux";
 import { styled } from "styled-components";
-
+import Over from "./Over";
 
 const TotalScore = () => {
 
@@ -13,17 +13,39 @@ const TotalScore = () => {
     color: #343974;
     flex-basis: 10rem;
     justify-content: center;
+    flex-direction: column;
+    align-items: center;
     `;
 
     const score = useSelector((state) => state.score.totalScore);
     const wickets = useSelector((state) => state.score.totalWickets);
+    const balls = useSelector((state) => state.score.totalBalls);
+
+    let ball = 0;
+    let over = 0;
+    
+    if(balls % 6 === 0) {
+        over = balls/6;
+    } else {
+        over = Math.floor(balls/6);
+        ball = balls%6;
+    }
 
     return(
+        
         <StyledScore>
+            <div className="score-display">
             <p>{score}</p>
             <p>/</p>
             <p>{wickets}</p>
+            </div>
+            <div>
+            <p style={{margin: '10px 0'}}>Overs : {over}.{ball}</p>
+            </div>
+            <Over/>
         </StyledScore>
+        
+        
     )
 }
 

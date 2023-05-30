@@ -31,7 +31,7 @@ export const cricObj = [
     },
     {
       name: 'out',
-      desc: "That was a fantastic delivery from the bowler, Commentator 1. It straightened after pitching and struck the batsman's pads in line with the stumps.",
+      desc: "That was a fantastic delivery from the bowler. It straightened after pitching and struck the batsman's pads in line with the stumps.",
       sign: 'W',
     },
     {
@@ -74,6 +74,7 @@ export const cricObj = [
       name: 'freehit',
       desc: 'Free hit! The bowler has overstepped, and the batsman gets a chance to capitalize on this rare opportunity.',
       sign: 'FH',
+      value: 1,
     },
     {
       name: 'runs',
@@ -249,8 +250,9 @@ export const cricObj = [
     },
     {
       name: 'freehit',
-      desc: "That's an unfortunate mistake by the bowler, Commentator 1. The batsman now has a chance to go all out without the fear of getting dismissed on this delivery.",
+      desc: "That's an unfortunate mistake by the bowler. The batsman now has a chance to go all out without the fear of getting dismissed on this delivery.",
       sign: 'FH',
+      value: 1
     },
     {
       name: 'runs',
@@ -301,6 +303,7 @@ export const cricObj = [
       name: 'freehit',
       desc: "This is a golden chance for the batsman to unleash his full power and take advantage of the free hit.",
       sign: 'FH',
+      value: 1
     },
     {
       name: 'out',
@@ -339,6 +342,7 @@ export const cricObj = [
       name: 'freehit',
       desc: 'Free hit',
       sign: 'FH',
+      value: 1
     },
     {
       name: 'runs',

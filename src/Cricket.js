@@ -1,6 +1,6 @@
 
-import { addScore, addWickets } from './redux/features/scoreSlice';
-import { useState } from 'react';
+import { addScore, addWickets, addBalls, getRun } from './redux/features/scoreSlice';
+import { useContext, useState } from 'react';
 import Image from './Image';
 import { cricObj } from './utils/common';
 import { styled } from 'styled-components';
@@ -8,15 +8,21 @@ import {  useDispatch } from 'react-redux';
 import TotalScore from './TotalScore';
 import CricModal from './CricModal';
 import { useSelector } from 'react-redux';
+import Settings from './Settings';
+import { CommentaryContext } from './context/CommentaryContext';
+
+
 
 const Cricket = () => {
     const [num, setNum] = useState(0);
   const [desc, setDesc] = useState('');
   const wickets = useSelector((state) => state.score.totalWickets);
-
+ 
   const dispatch = useDispatch();
 
- 
+  const {commentary} = useContext(CommentaryContext);
+
+  
   const StyledDesc = styled.p`
     font-size: 20px;
     color: ${props => props.ctype === 'W' ? "red" : "#487648"};
@@ -59,23 +65,39 @@ const Cricket = () => {
         setNum(Math.floor(Math.random()*14));
         const value = Math.floor(Math.random() * 62);
         setDesc(cricObj[value]);
-        if(cricObj[value].name === 'runs') {
+        dispatch(getRun(cricObj[value].sign));
+        if(cricObj[value].name !== 'freehit' || cricObj[value].sign !== 'WD') {
+          dispatch(addBalls());
+        }
+        
+        if(cricObj[value].name === 'runs' || cricObj[value].name === 'freehit') {
           dispatch(addScore(cricObj[value]?.value));
         } else if(cricObj[value].name === 'out') {
           dispatch(addWickets(1));
         } 
+        if(commentary) {
+          speechSynthesis.cancel();
+          const cmtry = new SpeechSynthesisUtterance(cricObj[value]?.desc);
+          speechSynthesis.speak(cmtry);
+        }
+        
       }
+
+      
+
     return(
         <div className="App">
       <header>
-        <StyledCricImg src='../cricket-white32.png'/>
+        <StyledCricImg src='../cricket-white32.png' alt='cricket logo'/>
         <StyledHeader>Cricket</StyledHeader>
+        <Settings/>
         </header>
      <StyledDiv>
      <Image num={num}/>
-       <StyledDesc ctype={desc.sign}>{desc?.desc}</StyledDesc>
+       <StyledDesc ctype={desc.sign}>{desc?.desc || 'Click on play button to play first ball'}</StyledDesc>
         <TotalScore/>
      </StyledDiv>
+     
      <div style={{textAlign:'center'}}>
      <StyledBtn onClick={handlebtn}>Play</StyledBtn>
      </div>
