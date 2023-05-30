@@ -1,4 +1,3 @@
-Cricket Game :
-**Page**
+Cricket game
 
-![image.png](https://)
+Have fun
