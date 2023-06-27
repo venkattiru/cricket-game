@@ -4,12 +4,13 @@ import Box from '@mui/material/Box';
 import Fade from '@mui/material/Fade';
 import Backdrop from '@mui/material/Backdrop';
 import { styled } from 'styled-components';
-import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import { useState } from 'react';
 import { resetScore } from './redux/features/scoreSlice';
 import { useDispatch } from 'react-redux';
-import { addTarget, modeChange } from './redux/features/modeDetails';
-import { red } from '@mui/material/colors';
+
+
+const GameStatusModal = ({open, status}) => {
+
 
 const style = {
     position: 'absolute',
@@ -40,7 +41,7 @@ const style = {
 // color: #091652;
 // `;
 
-const CricModal = ({open}) => {
+
     const [isOpen, setOpen] = useState(open);
     const dispatch = useDispatch();
 
@@ -49,13 +50,7 @@ const CricModal = ({open}) => {
         dispatch(resetScore());
     }
 
-    const handleTarget = () => {
-      let target_val = Math.floor(Math.random()*200);
-      target_val = target_val > 50 ? target_val : target_val+50;
-      dispatch(addTarget(target_val));
-      dispatch(modeChange({mode:'target'}));
-      setOpen(false);
-    }
+    
 
     return(
         <div>
@@ -76,12 +71,9 @@ const CricModal = ({open}) => {
                 <Box sx={style}>
           
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-          
-            <StyledBtn onClick={handleTarget}>Target Mode</StyledBtn>
-            <StyledBtn>High Score Mode</StyledBtn>
-            <div style={{color:'red', fontWeight:700,textAlign:'center'}}>
-              <p>Total wickets :10</p>
-              <p>Total overs :10</p>
+            <div style={{fontWeight:700,textAlign:'center'}}>
+              <p>{status === 'won' ? 'you won' : 'you loss'}</p>
+              <StyledBtn onClick={handleModalClose}>Play again</StyledBtn>
             </div>
           </Typography>
         </Box>
@@ -91,4 +83,5 @@ const CricModal = ({open}) => {
     )
 }
 
-export default  CricModal;
+
+export default GameStatusModal;

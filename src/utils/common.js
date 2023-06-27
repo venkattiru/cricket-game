@@ -39,7 +39,7 @@ export const cricObj = [
       desc: 'The batsman plays it gently into the gap and quickly scampers for a single.',
       sign: '1',
       value: 1
-    },
+    }, 
     {
       name: 'runs',
       desc: 'Its a SIXER',
@@ -71,6 +71,12 @@ export const cricObj = [
       value: 0
     },
     {
+      name: 'runs',
+      desc: 'The batsmen recognized the opportunity for a single and responded quickly to get off the mark.',
+      sign: '1',
+      value: 1
+    },
+    {
       name: 'freehit',
       desc: 'Free hit! The bowler has overstepped, and the batsman gets a chance to capitalize on this rare opportunity.',
       sign: 'FH',
@@ -84,14 +90,38 @@ export const cricObj = [
     },
     {
       name: 'runs',
+      desc: 'The batsmen recognized the opportunity for a single and responded quickly to get off the mark.',
+      sign: '1',
+      value: 1
+    },
+    {
+      name: 'runs',
       desc: 'He picked the length early and executed the pull shot with immense power.',
       sign: '4',
       value: 4
     },
     {
+      name: 'runs',
+      desc: 'What a stunning cover drive that was!',
+      sign: '4',
+      value: 4
+    },
+    {
+      name: 'runs',
+      desc: 'Brilliant running between the wickets! The batsmen have turned it into a three! This is exceptional running!',
+      sign: '3',
+      value: 3
+    },
+    {
       name: 'out',
       desc: 'The umpire had no hesitation in raising the finger. It looked plumb, and the batsman knew he was in trouble as soon as he missed the ball.',
       sign: 'W',
+    },
+    {
+      name: 'runs',
+      desc: 'Doubles are crucial in building partnerships and keeping the scoreboard ticking.',
+      sign: '2',
+      value: 2
     },
     {
       name: 'runs',
@@ -106,6 +136,18 @@ export const cricObj = [
       value: 4
     },
     {
+      name: 'runs',
+      desc: 'Brilliant running between the wickets! The batsmen have turned it into a three! This is exceptional running!',
+      sign: '3',
+      value: 3
+    },
+    {
+      name: 'runs',
+      desc: 'Doubles are crucial in building partnerships and keeping the scoreboard ticking.',
+      sign: '2',
+      value: 2
+    },
+    {
       name: 'out',
       desc: 'Ouch!! Hit Wicket',
       sign: 'W',
@@ -113,6 +155,24 @@ export const cricObj = [
     {
       name: 'runs',
       desc: 'The fielders tried to cut off the single, but the batsman was too fast between the wickets. He completed it comfortably in the end.',
+      sign: '1',
+      value: 1
+    },
+    {
+      name: 'runs',
+      desc: 'What a stunning cover drive that was!',
+      sign: '4',
+      value: 4
+    },
+    {
+      name: 'runs',
+      desc: 'Brilliant running between the wickets! The batsmen have turned it into a three! This is exceptional running!',
+      sign: '3',
+      value: 3
+    },
+    {
+      name: 'runs',
+      desc: 'The batsmen recognized the opportunity for a single and responded quickly to get off the mark.',
       sign: '1',
       value: 1
     },
@@ -129,9 +189,21 @@ export const cricObj = [
     },
     {
       name: 'runs',
+      desc: 'Doubles are crucial in building partnerships and keeping the scoreboard ticking.',
+      sign: '2',
+      value: 2
+    },
+    {
+      name: 'runs',
       desc: 'Oh, what a classy back foot drive! The batsman displayed textbook technique and exquisite timing with that shot.',
       sign: '4',
       value: 4
+    },
+    {
+      name: 'runs',
+      desc: 'The batsmen recognized the opportunity for a single and responded quickly to get off the mark.',
+      sign: '1',
+      value: 1
     },
     {
       name: 'out',
@@ -146,9 +218,21 @@ export const cricObj = [
     },
     {
       name: 'runs',
+      desc: 'Brilliant running between the wickets! The batsmen have turned it into a three! This is exceptional running!',
+      sign: '3',
+      value: 3
+    },
+    {
+      name: 'runs',
       desc: 'Oh, my word! The batsman has just unleashed the helicopter shot! This is one of the most extraordinary strokes in the game of cricket.',
       sign: '6',
       value: 6
+    },
+    {
+      name: 'runs',
+      desc: 'The batsmen recognized the opportunity for a single and responded quickly to get off the mark.',
+      sign: '1',
+      value: 1
     },
     {
       name: 'runs',
@@ -160,6 +244,18 @@ export const cricObj = [
       name: 'out',
       desc: "It's a reminder that anything can happen in cricket. The game is full of surprises, and this hit wicket dismissal adds another chapter to its unpredictability.",
       sign: 'W',
+    },
+    {
+      name: 'runs',
+      desc: 'Brilliant running between the wickets! The batsmen have turned it into a three! This is exceptional running!',
+      sign: '3',
+      value: 3
+    },
+    {
+      name: 'runs',
+      desc: 'The batsmen recognized the opportunity for a single and responded quickly to get off the mark.',
+      sign: '1',
+      value: 1
     },
     {
       name: 'runs',
@@ -181,9 +277,33 @@ export const cricObj = [
     },
     {
       name: 'runs',
+      desc: 'Doubles are crucial in building partnerships and keeping the scoreboard ticking.',
+      sign: '2',
+      value: 2
+    },
+    {
+      name: 'runs',
+      desc: 'The batsmen recognized the opportunity for a single and responded quickly to get off the mark.',
+      sign: '1',
+      value: 1
+    },
+    {
+      name: 'runs',
       desc: 'The bowler will be disappointed with himself for giving away an extra run and an extra delivery to the batting side.',
       sign: 'WD',
       value: 1
+    },
+    {
+      name: 'runs',
+      desc: 'Brilliant running between the wickets! The batsmen have turned it into a three! This is exceptional running!',
+      sign: '3',
+      value: 3
+    },
+    {
+      name: 'runs',
+      desc: 'Doubles are crucial in building partnerships and keeping the scoreboard ticking.',
+      sign: '2',
+      value: 2
     },
     {
       name: 'out',
@@ -192,9 +312,27 @@ export const cricObj = [
     },
     {
       name: 'runs',
+      desc: 'The batsmen recognized the opportunity for a single and responded quickly to get off the mark.',
+      sign: '1',
+      value: 1
+    },
+    {
+      name: 'runs',
       desc: 'Doubles are crucial in building partnerships and keeping the scoreboard ticking.',
       sign: '2',
       value: 2
+    },
+    {
+      name: 'runs',
+      desc: 'Doubles are crucial in building partnerships and keeping the scoreboard ticking.',
+      sign: '2',
+      value: 2
+    },
+    {
+      name: 'runs',
+      desc: 'The batsmen recognized the opportunity for a single and responded quickly to get off the mark.',
+      sign: '1',
+      value: 1
     },
     {
       name: 'runs',
@@ -215,6 +353,12 @@ export const cricObj = [
     },
     {
       name: 'runs',
+      desc: 'The batsmen recognized the opportunity for a single and responded quickly to get off the mark.',
+      sign: '1',
+      value: 1
+    },
+    {
+      name: 'runs',
       desc: 'Two byes added to the score on that delivery.',
       sign: '2b',
       value: 2
@@ -232,9 +376,15 @@ export const cricObj = [
     },
     {
       name: 'runs',
-      desc: 'What a fortunate result for the batting side! The wide ball has raced away to the boundary.',
-      sign: 'WD+4',
-      value: 5
+      desc: 'The batsmen recognized the opportunity for a single and responded quickly to get off the mark.',
+      sign: '1',
+      value: 1
+    },
+    {
+      name: 'runs',
+      desc: 'Brilliant running between the wickets! The batsmen have turned it into a three! This is exceptional running!',
+      sign: '3',
+      value: 3
     },
     {
       name: 'runs',
@@ -256,14 +406,56 @@ export const cricObj = [
     },
     {
       name: 'runs',
+      desc: 'The batsmen recognized the opportunity for a single and responded quickly to get off the mark.',
+      sign: '1',
+      value: 1
+    },
+    {
+      name: 'runs',
+      desc: 'Brilliant running between the wickets! The batsmen have turned it into a three! This is exceptional running!',
+      sign: '3',
+      value: 3
+    },
+    {
+      name: 'runs',
+      desc: 'What a stunning cover drive that was!',
+      sign: '4',
+      value: 4
+    },
+    {
+      name: 'runs',
+      desc: 'Brilliant running between the wickets! The batsmen have turned it into a three! This is exceptional running!',
+      sign: '3',
+      value: 3
+    },
+    {
+      name: 'runs',
       desc: 'It was a good line and length by the bowler, not giving the batsman any room to score.',
       sign: '0',
       value: 0
     },
     {
+      name: 'runs',
+      desc: 'Brilliant running between the wickets! The batsmen have turned it into a three! This is exceptional running!',
+      sign: '3',
+      value: 3
+    },
+    {
+      name: 'runs',
+      desc: 'The batsmen recognized the opportunity for a single and responded quickly to get off the mark.',
+      sign: '1',
+      value: 1
+    },
+    {
       name: 'out',
       desc: "That's a classic dismissal, known as the bowler's dream. The batsman will be extremely disappointed with his misjudgment.",
       sign: 'W',
+    },
+    {
+      name: 'runs',
+      desc: 'The batsmen recognized the opportunity for a single and responded quickly to get off the mark.',
+      sign: '1',
+      value: 1
     },
     {
       name: 'runs',
@@ -273,9 +465,27 @@ export const cricObj = [
     },
     {
       name: 'runs',
+      desc: 'The batsmen recognized the opportunity for a single and responded quickly to get off the mark.',
+      sign: '1',
+      value: 1
+    },
+    {
+      name: 'runs',
       desc: 'It was a challenging ball for both the batsman and the wicketkeeper. The ball took an unexpected bounce or turn, resulting in the byes.',
       sign: '2b',
       value: 2
+    },
+    {
+      name: 'runs',
+      desc: 'What a stunning cover drive that was!',
+      sign: '4',
+      value: 4
+    },
+    {
+      name: 'runs',
+      desc: 'Brilliant running between the wickets! The batsmen have turned it into a three! This is exceptional running!',
+      sign: '3',
+      value: 3
     },
     {
       name: 'runs',
@@ -318,6 +528,12 @@ export const cricObj = [
     },
     {
       name: 'runs',
+      desc: 'What a stunning cover drive that was!',
+      sign: '4',
+      value: 4
+    },
+    {
+      name: 'runs',
       desc: ' The ball was well outside the reach of the wicketkeeper, and the batsmen seized the opportunity to steal a bye and add an extra run to the total.',
       sign: '1b',
       value: 1
@@ -334,9 +550,21 @@ export const cricObj = [
       value: 6
     },
     {
+      name: 'runs',
+      desc: 'Brilliant running between the wickets! The batsmen have turned it into a three! This is exceptional running!',
+      sign: '3',
+      value: 3
+    },
+    {
       name: 'out',
       desc: "And that's an OUT! The bowler strikes with a brilliant delivery, and the fielding side erupts in celebration.",
       sign: 'W',
+    },
+    {
+      name: 'runs',
+      desc: 'What a stunning cover drive that was!',
+      sign: '4',
+      value: 4
     },
     {
       name: 'freehit',
@@ -357,9 +585,27 @@ export const cricObj = [
       value: 6
     },
     {
+      name: 'runs',
+      desc: 'What a stunning cover drive that was!',
+      sign: '4',
+      value: 4
+    },
+    {
       name: 'out',
       desc: ' LBW! The batsman is given out LBW (Leg Before Wicket)!',
       sign: 'W',
+    },
+    {
+      name: 'runs',
+      desc: 'Brilliant running between the wickets! The batsmen have turned it into a three! This is exceptional running!',
+      sign: '3',
+      value: 3
+    },
+    {
+      name: 'runs',
+      desc: 'What a stunning cover drive that was!',
+      sign: '4',
+      value: 4
     },
     {
       name: 'runs',

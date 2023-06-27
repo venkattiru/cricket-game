@@ -1,6 +1,6 @@
 
 import { addScore, addWickets, addBalls, getRun } from './redux/features/scoreSlice';
-import { useContext, useState } from 'react';
+import { useContext, useDeferredValue, useEffect, useState } from 'react';
 import Image from './Image';
 import { cricObj } from './utils/common';
 import { styled } from 'styled-components';
@@ -10,18 +10,24 @@ import CricModal from './CricModal';
 import { useSelector } from 'react-redux';
 import Settings from './Settings';
 import { CommentaryContext } from './context/CommentaryContext';
+import GameStatusModal from './GameStatusModal';
 
 
 
 const Cricket = () => {
     const [num, setNum] = useState(0);
   const [desc, setDesc] = useState('');
+  const [status, setStatus] = useState('playing');
   const wickets = useSelector((state) => state.score.totalWickets);
+  const totalScore = useSelector((state) => state.score.totalScore);
+  const totalBalls = useSelector((state) => state.score.totalBalls);
+  const deferredStatus = useDeferredValue(status);
  
   const dispatch = useDispatch();
 
   const {commentary} = useContext(CommentaryContext);
-
+  const mode = useSelector((state) => state.mode.mode );
+  const target = useSelector((state) => state.mode.target.currentTarget);
   
   const StyledDesc = styled.p`
     font-size: 20px;
@@ -61,6 +67,19 @@ const Cricket = () => {
     left: 10px;
   `;
 
+  useEffect(() => {
+    if(totalBalls === 60 || wickets === 10 ) {
+      if(totalScore >= target) {
+        setStatus('won');
+      } else {
+        setStatus('loss');
+      }
+    }
+    if(totalScore >= target && target !== 0) {
+      setStatus('won');
+    }
+  },[totalBalls,wickets,totalScore]);
+  
     const handlebtn = () => {
         setNum(Math.floor(Math.random()*14));
         const value = Math.floor(Math.random() * 62);
@@ -83,8 +102,6 @@ const Cricket = () => {
         
       }
 
-      
-
     return(
         <div className="App">
       <header>
@@ -95,13 +112,15 @@ const Cricket = () => {
      <StyledDiv>
      <Image num={num}/>
        <StyledDesc ctype={desc.sign}>{desc?.desc || 'Click on play button to play first ball'}</StyledDesc>
+       {mode === 'target' && <p className='display-target'>Target : {target}</p>}
         <TotalScore/>
      </StyledDiv>
      
      <div style={{textAlign:'center'}}>
      <StyledBtn onClick={handlebtn}>Play</StyledBtn>
      </div>
-     {wickets === 10 && <CricModal open={true} />}
+     <CricModal open={true} />
+     {status !== 'playing' && <GameStatusModal open={true} status={deferredStatus} />}
     </div>
     )
 }

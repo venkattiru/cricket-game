@@ -20,6 +20,7 @@ const TotalScore = () => {
     const score = useSelector((state) => state.score.totalScore);
     const wickets = useSelector((state) => state.score.totalWickets);
     const balls = useSelector((state) => state.score.totalBalls);
+    
 
     let ball = 0;
     let over = 0;
