@@ -35,7 +35,7 @@ const Cricket = () => {
     font-weight: 700;
     flex-grow: 1;
     @media only screen and (min-width:1024px) {
-      flex-basis: 32rem;
+      flex-basis: 32rem;g
     }
     text-align:center;
     margin-right: 18px;
@@ -118,7 +118,7 @@ const Cricket = () => {
      <StyledDiv>
      <Image num={num}/>
        <StyledDesc ctype={desc.sign}>{desc?.desc || 'Click on play button to play first ball'}</StyledDesc>
-       {mode === 'target' && <p className='display-target'>Target : {target}</p>}
+       {mode === 'target' && <marquee className='display-target'>Target : {target}</marquee>}
         <TotalScore/>
      </StyledDiv>
      
