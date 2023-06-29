@@ -34,13 +34,19 @@ const Cricket = () => {
     color: ${props => props.ctype === 'W' ? "red" : "#487648"};
     font-weight: 700;
     flex-grow: 1;
-    flex-basis: 32rem;
+    @media only screen and (min-width:1024px) {
+      flex-basis: 32rem;
+    }
+    text-align:center;
     margin-right: 18px;
   `;
   const StyledDiv = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    @media only screen and (max-width:1024px) {
+      flex-direction: column;
+    }
   `;
 
   const StyledBtn = styled.button`
