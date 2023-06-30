@@ -1,4 +1,4 @@
-import { addScore, addWickets, addBalls, getRun } from './redux/features/scoreSlice'
+import { addScore, addWickets, addBalls, getRun, getDesc } from './redux/features/scoreSlice'
 import { useContext, useDeferredValue, useEffect, useState } from 'react'
 import Image from './Image'
 import { cricObj } from './utils/common'
@@ -13,15 +13,14 @@ import GameStatusModal from './GameStatusModal'
 
 const Cricket = () => {
   const [num, setNum] = useState(0)
-  const [desc, setDesc] = useState('')
   const [status, setStatus] = useState('playing')
+  const desc = useSelector((state) => state.score.commentDesc)
   const wickets = useSelector((state) => state.score.totalWickets)
   const totalScore = useSelector((state) => state.score.totalScore)
   const totalBalls = useSelector((state) => state.score.totalBalls)
   const deferredStatus = useDeferredValue(status)
 
   const dispatch = useDispatch()
-
   const { commentary } = useContext(CommentaryContext)
   const mode = useSelector((state) => state.mode.mode)
   const target = useSelector((state) => state.mode.target.currentTarget)
@@ -88,7 +87,7 @@ const Cricket = () => {
   const handlebtn = () => {
     setNum(Math.floor(Math.random() * 14))
     const value = Math.floor(Math.random() * 62)
-    setDesc(cricObj[value])
+    dispatch(getDesc(cricObj[value]))
     dispatch(getRun(cricObj[value].sign))
     if (cricObj[value].name !== 'freehit' || cricObj[value].sign !== 'WD') {
       dispatch(addBalls())

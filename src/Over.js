@@ -5,7 +5,7 @@ const Over = () => {
   return (
 
     <div style={{ display: 'flex' }}>
-      <div className="circle"><p style={{ margin: 0 }} data-aos='fade-up-show' >{runs}</p></div>
+      <div className="circle"><p style={{ margin: 0 }} >{runs}</p></div>
     </div>
 
   )

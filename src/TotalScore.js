@@ -1,3 +1,4 @@
+import { memo } from 'react'
 import { shallowEqual, useSelector } from 'react-redux'
 import { styled } from 'styled-components'
 import Over from './Over'
@@ -33,9 +34,9 @@ const TotalScore = () => {
 
         <StyledScore>
             <div className="score-display">
-            <p data-aos='fade-up-show'>{score}</p>
+            <p data-aos='up-show'>{score}</p>
             <p>/</p>
-            <p data-aos='fade-up-show'>{wickets}</p>
+            <p data-aos='up-show'>{wickets}</p>
             </div>
             <div>
             <p style={{ margin: '10px 0' }}>Overs : {over}.{ball}</p>
@@ -46,4 +47,4 @@ const TotalScore = () => {
   )
 }
 
-export default TotalScore
+export default memo(TotalScore)

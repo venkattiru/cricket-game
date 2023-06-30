@@ -4,7 +4,8 @@ const initialState = {
   totalScore: 0,
   totalWickets: 0,
   totalBalls: 0,
-  runScored: ''
+  runScored: 0,
+  commentDesc: 'click on play button'
 }
 
 export const scoreSlice = createSlice({
@@ -24,14 +25,18 @@ export const scoreSlice = createSlice({
       state.totalScore = 0
       state.totalWickets = 0
       state.totalBalls = 0
-      state.runScored = ''
+      state.runScored = 0
+      state.commentDesc = 'Click on play to start'
     },
     getRun: (state, action) => {
       state.runScored = action.payload
+    },
+    getDesc: (state, action) => {
+      state.commentDesc = action.payload
     }
   }
 })
 
-export const { addScore, addWickets, resetScore, addBalls, getRun } = scoreSlice.actions
+export const { addScore, addWickets, resetScore, addBalls, getRun, getDesc } = scoreSlice.actions
 
 export default scoreSlice.reducer
