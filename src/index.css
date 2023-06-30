@@ -18,3 +18,15 @@ code {
   color: #e74824;
   font-weight: 500;
 }
+
+[data-aos="fade-up-show"] {
+  opacity: 0;
+  transition-property: transform, opacity;
+  transform: translate3d(0,10px,0);
+
+  &.aos-animate {
+    opacity: 1;
+    transform: translate3d(0,100px,0);
+  }
+
+  }

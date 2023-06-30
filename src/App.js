@@ -1,24 +1,28 @@
+import './App.css'
 
+import { Provider } from 'react-redux'
+import { store } from './redux/store'
 
-import './App.css';
+import Cricket from './Cricket'
+import { CommentaryContext } from './context/CommentaryContext'
+import { useEffect, useState } from 'react'
+import Aos from 'aos'
+import 'aos/dist/aos.css'
 
-import { Provider } from 'react-redux';
-import { store } from './redux/store';
+function App () {
+  const [commentary, setCommentary] = useState(true)
 
-import Cricket from './Cricket';
-import { CommentaryContext } from './context/CommentaryContext';
-import { useState } from 'react';
+  useEffect(() => {
+    Aos.init()
+  }, [])
 
-function App() {
-  const [commentary, setCommentary] = useState(true);
- 
   return (
     <Provider store={store}>
-      <CommentaryContext.Provider value={{commentary,setCommentary}}>
+      <CommentaryContext.Provider value={{ commentary, setCommentary }}>
     <Cricket/>
     </CommentaryContext.Provider>
     </Provider>
-  );
+  )
 }
 
-export default App;
+export default App

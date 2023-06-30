@@ -1,29 +1,27 @@
-import Typography from '@mui/material/Typography';
-import Modal from '@mui/material/Modal';
-import Box from '@mui/material/Box'; 
-import Fade from '@mui/material/Fade';
-import Backdrop from '@mui/material/Backdrop';
-import { styled } from 'styled-components';
-import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
-import { useState } from 'react';
-import { resetScore } from './redux/features/scoreSlice';
-import { useDispatch } from 'react-redux';
-import { addTarget, modeChange } from './redux/features/modeDetails';
-import { red } from '@mui/material/colors';
+import Typography from '@mui/material/Typography'
+import Modal from '@mui/material/Modal'
+import Box from '@mui/material/Box'
+import Fade from '@mui/material/Fade'
+import Backdrop from '@mui/material/Backdrop'
+import { styled } from 'styled-components'
+import { useState } from 'react'
+import { resetScore } from './redux/features/scoreSlice'
+import { useDispatch } from 'react-redux'
+import { addTarget, modeChange } from './redux/features/modeDetails'
 
 const style = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: 'auto',
-    bgcolor: 'background.paper',
-    border: '2px solid #000',
-    boxShadow: 24,
-    p: 4,
-    display: 'inline-flex',
-  };
-  const StyledBtn = styled.button`
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 'auto',
+  bgcolor: 'background.paper',
+  border: '2px solid #000',
+  boxShadow: 24,
+  p: 4,
+  display: 'inline-flex'
+}
+const StyledBtn = styled.button`
   all: unset;
   padding: 10px;
   font-weight: 700;
@@ -32,7 +30,7 @@ const style = {
   color: white;
   text-align: center;
   margin: 5px;
-`;
+`
 // const Styledp = styled.p`
 // margin: 10px 0;
 // font-size: 28px;
@@ -40,24 +38,29 @@ const style = {
 // color: #091652;
 // `;
 
-const CricModal = ({open}) => {
-    const [isOpen, setOpen] = useState(open);
-    const dispatch = useDispatch();
+const CricModal = ({ open }) => {
+  const [isOpen, setOpen] = useState(open)
+  const dispatch = useDispatch()
 
-    const handleModalClose = () => {
-        setOpen(false);
-        dispatch(resetScore());
-    }
+  const handleModalClose = () => {
+    setOpen(false)
+    dispatch(resetScore())
+  }
 
-    const handleTarget = () => {
-      let target_val = Math.floor(Math.random()*200);
-      target_val = target_val > 50 ? target_val : target_val+50;
-      dispatch(addTarget(target_val));
-      dispatch(modeChange({mode:'target'}));
-      setOpen(false);
-    }
+  const handleTarget = () => {
+    let targetVal = Math.floor(Math.random() * 200)
+    targetVal = targetVal > 50 ? targetVal : targetVal + 50
+    dispatch(addTarget(targetVal))
+    dispatch(modeChange({ mode: 'target' }))
+    setOpen(false)
+  }
 
-    return(
+  const handleHighScore = () => {
+    setOpen(false)
+    dispatch(modeChange({ mode: 'highscore' }))
+  }
+
+  return (
         <div>
             <Modal
             aria-labelledby="transition-modal-title"
@@ -68,18 +71,18 @@ const CricModal = ({open}) => {
         slots={{ backdrop: Backdrop }}
         slotProps={{
           backdrop: {
-            timeout: 500,
-          },
+            timeout: 500
+          }
         }}
             >
                 <Fade in={isOpen}>
                 <Box sx={style}>
-          
+
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-          
+
             <StyledBtn onClick={handleTarget}>Target Mode</StyledBtn>
-            <StyledBtn>High Score Mode</StyledBtn>
-            <div style={{color:'red', fontWeight:700,textAlign:'center'}}>
+            <StyledBtn onClick={handleHighScore}>High Score Mode</StyledBtn>
+            <div style={{ color: 'red', fontWeight: 700, textAlign: 'center' }}>
               <p>Total wickets :10</p>
               <p>Total overs :10</p>
             </div>
@@ -88,7 +91,7 @@ const CricModal = ({open}) => {
         </Fade>
             </Modal>
         </div>
-    )
+  )
 }
 
-export default  CricModal;
+export default CricModal

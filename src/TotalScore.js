@@ -1,11 +1,9 @@
-
-import { useSelector } from "react-redux";
-import { styled } from "styled-components";
-import Over from "./Over";
+import { shallowEqual, useSelector } from 'react-redux'
+import { styled } from 'styled-components'
+import Over from './Over'
 
 const TotalScore = () => {
-
-    const StyledScore = styled.div`
+  const StyledScore = styled.div`
     flex-grow: 1;
     display: inline-flex;
     font-weight: 600;
@@ -15,39 +13,37 @@ const TotalScore = () => {
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    `;
+    `
 
-    const score = useSelector((state) => state.score.totalScore);
-    const wickets = useSelector((state) => state.score.totalWickets);
-    const balls = useSelector((state) => state.score.totalBalls);
-    
+  const score = useSelector((state) => state.score.totalScore, shallowEqual)
+  const wickets = useSelector((state) => state.score.totalWickets)
+  const balls = useSelector((state) => state.score.totalBalls)
 
-    let ball = 0;
-    let over = 0;
-    
-    if(balls % 6 === 0) {
-        over = balls/6;
-    } else {
-        over = Math.floor(balls/6);
-        ball = balls%6;
-    }
+  let ball = 0
+  let over = 0
 
-    return(
-        
+  if (balls % 6 === 0) {
+    over = balls / 6
+  } else {
+    over = Math.floor(balls / 6)
+    ball = balls % 6
+  }
+
+  return (
+
         <StyledScore>
             <div className="score-display">
-            <p>{score}</p>
+            <p data-aos='fade-up-show'>{score}</p>
             <p>/</p>
-            <p>{wickets}</p>
+            <p data-aos='fade-up-show'>{wickets}</p>
             </div>
             <div>
-            <p style={{margin: '10px 0'}}>Overs : {over}.{ball}</p>
+            <p style={{ margin: '10px 0' }}>Overs : {over}.{ball}</p>
             </div>
             <Over/>
         </StyledScore>
-        
-        
-    )
+
+  )
 }
 
-export default TotalScore;
+export default TotalScore
