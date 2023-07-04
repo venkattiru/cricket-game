@@ -6,9 +6,10 @@ import Backdrop from '@mui/material/Backdrop'
 import { styled } from 'styled-components'
 import { useState } from 'react'
 import { resetScore } from './redux/features/scoreSlice'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { onHighScoreComplete, onTargetComplete } from './redux/features/modeDetails'
 
-const GameStatusModal = ({ open, status }) => {
+const GameStatusModal = ({ open, status, mode }) => {
   const style = {
     position: 'absolute',
     top: '50%',
@@ -39,11 +40,21 @@ const GameStatusModal = ({ open, status }) => {
   // `;
 
   const [isOpen, setOpen] = useState(open)
+  const totalScore = useSelector((state) => state.score.totalScore)
+  const highScore = useSelector((state) => state.mode.highScore)
   const dispatch = useDispatch()
 
   const handleModalClose = () => {
     setOpen(false)
     dispatch(resetScore())
+    if (mode === 'highscore') {
+      localStorage.setItem('score', totalScore)
+      if (totalScore > highScore) {
+        dispatch(onHighScoreComplete({ highScore: totalScore }))
+      }
+    } else {
+      dispatch(onTargetComplete({ status }))
+    }
   }
 
   return (
@@ -66,7 +77,7 @@ const GameStatusModal = ({ open, status }) => {
 
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
             <div style={{ fontWeight: 700, textAlign: 'center' }}>
-              <p>{status === 'won' ? 'you won' : 'you loss'}</p>
+              {mode === 'target' ? (<p> {`you ${status}`}</p>) : <p> your score : {totalScore}</p> }
               <StyledBtn onClick={handleModalClose}>Play again</StyledBtn>
             </div>
           </Typography>

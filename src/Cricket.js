@@ -6,10 +6,10 @@ import { styled } from 'styled-components'
 import { useDispatch, useSelector } from 'react-redux'
 import TotalScore from './TotalScore'
 import CricModal from './CricModal'
-
 import Settings from './Settings'
 import { CommentaryContext } from './context/CommentaryContext'
 import GameStatusModal from './GameStatusModal'
+import Footer from './Footer'
 
 const Cricket = () => {
   const [num, setNum] = useState(0)
@@ -24,6 +24,7 @@ const Cricket = () => {
   const { commentary } = useContext(CommentaryContext)
   const mode = useSelector((state) => state.mode.mode)
   const target = useSelector((state) => state.mode.target.currentTarget)
+  const highScore = useSelector((state) => state.mode.highScore)
 
   const StyledDesc = styled.p`
     font-size: 20px;
@@ -116,6 +117,7 @@ const Cricket = () => {
      <Image num={num}/>
        <StyledDesc data-aos = 'zoom-in' ctype={desc.sign}>{desc?.desc || 'Click on play button to play first ball'} </StyledDesc>
        {mode === 'target' && <marquee className='display-target'>Target : {target}</marquee>}
+       {mode === 'highscore' && <p className='display-target'>High Score : {highScore}</p>}
         <TotalScore/>
      </StyledDiv>
 
@@ -123,7 +125,8 @@ const Cricket = () => {
      <StyledBtn onClick={handlebtn}>Play</StyledBtn>
      </div>
      <CricModal open={true} />
-     {status !== 'playing' && <GameStatusModal open={true} status={deferredStatus} />}
+     <Footer/>
+     {status !== 'playing' && <GameStatusModal open={true} status={deferredStatus} mode={mode}/>}
     </div>
   )
 }

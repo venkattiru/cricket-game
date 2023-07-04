@@ -24,9 +24,12 @@ export const modeSlice = createSlice({
     },
     onTargetComplete: (state, action) => {
       state.target.totalMatches += 1
-      state.target.totalWins += action.payload.wins
-      state.target.totalLoss += action.payload.loss
-      state.target.totalTie += action.payload.Tie
+      if (action.payload.status === 'won') {
+        state.target.totalWins += 1
+      } else {
+        state.target.totalLoss += 1
+      }
+      state.target.totalTie = 0
     },
     onHighScoreComplete: (state, action) => {
       state.highScore = action.payload.highScore
