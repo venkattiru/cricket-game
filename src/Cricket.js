@@ -125,7 +125,7 @@ const Cricket = () => {
      <StyledBtn onClick={handlebtn}>Play</StyledBtn>
      </div>
      <CricModal open={true} />
-     <Footer/>
+     {window.matchMedia('(max-width:767px)') && <Footer/>}
      {status !== 'playing' && <GameStatusModal open={true} status={deferredStatus} mode={mode}/>}
     </div>
   )
