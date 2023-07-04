@@ -105,7 +105,6 @@ const Cricket = () => {
       speechSynthesis.speak(cmtry)
     }
   }
-
   return (
         <div className="App">
       <header>
@@ -125,7 +124,7 @@ const Cricket = () => {
      <StyledBtn onClick={handlebtn}>Play</StyledBtn>
      </div>
      <CricModal open={true} />
-     {window.matchMedia('(max-width:767px)') && <Footer/>}
+     {(window.matchMedia('(min-width:768px)')?.matches) && <Footer/>}
      {status !== 'playing' && <GameStatusModal open={true} status={deferredStatus} mode={mode}/>}
     </div>
   )
