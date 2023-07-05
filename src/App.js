@@ -8,6 +8,7 @@ import { CommentaryContext } from './context/CommentaryContext'
 import { useEffect, useState } from 'react'
 import Aos from 'aos'
 import 'aos/dist/aos.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 function App () {
   const [commentary, setCommentary] = useState(true)

@@ -61,6 +61,7 @@ const Settings = () => {
         <MenuItem>Commentary <Switch checked={commentary} onClick={handleComment}/></MenuItem>
         <MenuItem>Music <Switch checked={music} onClick={handleMusic}/></MenuItem>
         <MenuItem onClick={handleClose}>My account</MenuItem>
+        <MenuItem onClick={handleClose}>Contact us</MenuItem>
         <MenuItem onClick={handleClose}>Logout</MenuItem>
       </Menu>
       <audio ref={audioRef} preload loop>

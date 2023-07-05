@@ -6,9 +6,9 @@ import { styled } from 'styled-components'
 import { useDispatch, useSelector } from 'react-redux'
 import TotalScore from './TotalScore'
 import CricModal from './CricModal'
-import Settings from './Settings'
 import { CommentaryContext } from './context/CommentaryContext'
 import GameStatusModal from './GameStatusModal'
+import Header from './Header'
 import Footer from './Footer'
 
 const Cricket = () => {
@@ -58,20 +58,6 @@ const Cricket = () => {
     text-align: center;
   `
 
-  const StyledHeader = styled.h2`
-  background:#24247c;
-  text-align: center;
-    color: coral;
-    margin: 0;
-    padding: 10px;
-  `
-
-  const StyledCricImg = styled.img`
-    top: 8px;
-    position: absolute;
-    left: 10px;
-  `
-
   useEffect(() => {
     if (totalBalls === 60 || wickets === 10) {
       if (totalScore >= target) {
@@ -107,11 +93,7 @@ const Cricket = () => {
   }
   return (
         <div className="App">
-      <header>
-        <StyledCricImg src='../cricket-white32.png' alt='cricket logo'/>
-        <StyledHeader>Cricket</StyledHeader>
-        <Settings/>
-        </header>
+          <Header/>
      <StyledDiv>
      <Image num={num}/>
        <StyledDesc data-aos = 'zoom-in' ctype={desc.sign}>{desc?.desc || 'Click on play button to play first ball'} </StyledDesc>
