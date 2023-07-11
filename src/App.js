@@ -3,12 +3,12 @@ import './App.css'
 import { Provider } from 'react-redux'
 import { store } from './redux/store'
 
-import Cricket from './Cricket'
 import { CommentaryContext } from './context/CommentaryContext'
 import { useEffect, useState } from 'react'
 import Aos from 'aos'
 import 'aos/dist/aos.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import CricketContainer from './CricketContainer'
 
 function App () {
   const [commentary, setCommentary] = useState(true)
@@ -20,7 +20,7 @@ function App () {
   return (
     <Provider store={store}>
       <CommentaryContext.Provider value={{ commentary, setCommentary }}>
-    <Cricket/>
+    <CricketContainer/>
     </CommentaryContext.Provider>
     </Provider>
   )

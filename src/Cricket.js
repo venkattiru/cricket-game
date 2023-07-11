@@ -1,15 +1,13 @@
-import { addScore, addWickets, addBalls, getRun, getDesc } from './redux/features/scoreSlice'
 import { useContext, useDeferredValue, useEffect, useState } from 'react'
-import Image from './Image'
-import { cricObj } from './utils/common'
-import { styled } from 'styled-components'
 import { useDispatch, useSelector } from 'react-redux'
+import { CommentaryContext } from './context/CommentaryContext'
+import { addScore, addWickets, addBalls, getRun, getDesc } from './redux/features/scoreSlice'
+import { cricObj } from './utils/common'
+import Image from './Image'
 import TotalScore from './TotalScore'
 import CricModal from './CricModal'
-import { CommentaryContext } from './context/CommentaryContext'
 import GameStatusModal from './GameStatusModal'
-import Header from './Header'
-import Footer from './Footer'
+import { styled } from 'styled-components'
 
 const Cricket = () => {
   const [num, setNum] = useState(0)
@@ -25,7 +23,6 @@ const Cricket = () => {
   const mode = useSelector((state) => state.mode.mode)
   const target = useSelector((state) => state.mode.target.currentTarget)
   const highScore = useSelector((state) => state.mode.highScore)
-
   const StyledDesc = styled.p`
     font-size: 20px;
     color: ${props => props.ctype === 'W' ? 'red' : '#487648'};
@@ -92,23 +89,20 @@ const Cricket = () => {
     }
   }
   return (
-        <div className="App">
-          <Header/>
-     <StyledDiv>
+        <div>
+            <StyledDiv>
      <Image num={num}/>
        <StyledDesc data-aos = 'zoom-in' ctype={desc.sign}>{desc?.desc || 'Click on play button to play first ball'} </StyledDesc>
        {mode === 'target' && <marquee className='display-target'>Target : {target}</marquee>}
        {mode === 'highscore' && <p className='display-target'>High Score : {highScore}</p>}
         <TotalScore/>
      </StyledDiv>
-
      <div style={{ textAlign: 'center', padding: 10 }}>
      <StyledBtn onClick={handlebtn}>Play</StyledBtn>
      </div>
      <CricModal open={true} />
-     {(window.matchMedia('(min-width:768px)')?.matches) && <Footer/>}
      {status !== 'playing' && <GameStatusModal open={true} status={deferredStatus} mode={mode}/>}
-    </div>
+        </div>
   )
 }
 
