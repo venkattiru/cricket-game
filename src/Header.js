@@ -17,7 +17,7 @@ export default function Header () {
   `
   return (
         <header>
-        <StyledCricImg src='../cricket-white32.png' alt='cricket logo'/>
+        <StyledCricImg src='../cricket-white32.png' alt='cricket logo' onClick={() => { window.location.href = '/cricket' } }/>
         <StyledHeader>Cricket</StyledHeader>
         <Settings/>
         </header>
