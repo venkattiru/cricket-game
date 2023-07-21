@@ -1,0 +1,8 @@
+{
+    "appId": "io.ionic.cricketHit",
+    "appName": "cricketHit",
+    "bundledWebRuntime": false,
+    "npmClient": "npm",
+    "webDir": "build",
+    "cordova": {}
+  }

@@ -9,12 +9,14 @@ import Aos from 'aos'
 import 'aos/dist/aos.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import CricketContainer from './CricketContainer'
+import { setupIonicReact } from '@ionic/react'
 
 function App () {
   const [commentary, setCommentary] = useState(true)
 
   useEffect(() => {
     Aos.init()
+    setupIonicReact()
   }, [])
 
   return (

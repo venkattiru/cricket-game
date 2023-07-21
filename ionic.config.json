@@ -1,0 +1,7 @@
+{
+    "name": "cricketHit",
+    "integrations": {
+      "capacitor": {}
+    },
+    "type": "react"
+  }
